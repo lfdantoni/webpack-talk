@@ -1,0 +1,88 @@
+.music-player {
+    background-color: red;
+    height: 100%;
+    max-width: 500px;
+    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .current-music-bg {
+    height: 40%;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; /*https://images.991.com/large_image/ACDC+Black+Ice-448601.jpg*/
+    background-image: url("https://baronmag.ca/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_629/MTM3Mjc0MzI2MDM5NzMzNDE2/highwaytohell.webp");
+    background-size: 100% 100%;
+    color: white;
+  }
+  .current-music-bg:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent 50%, black 100%);
+    position: absolute;
+    bottom: 0;
+  }
+  .current-music {
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+  .current-music .controls {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-top: 1em;
+  }
+  
+  .music-cover img {
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .music-list {
+    overflow-y: auto;
+    max-height: 60%;
+  }
+  
+  .music-item {
+    height: 90px;
+    background-color: green;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .music-item .cover {
+    background-color: azure;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  .music-item .cover img {
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .music-item .music-desc {
+    flex: 1;
+  }
+  
+  .music-item .time {
+    background-color: bisque;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  
