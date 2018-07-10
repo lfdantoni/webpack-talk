@@ -4,7 +4,8 @@
   "description": "Webpack Talk",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build-dev": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,15 @@
   },
   "homepage": "https://github.com/lfdantoni/webpack-talk#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.52",
+    "@babel/preset-env": "^7.0.0-beta.52",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^7.1.5",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^4.0.0-alpha",
+    "style-loader": "^0.21.0",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8"
-  }
+  },
+  "dependencies": {}
 }
