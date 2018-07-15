@@ -11,10 +11,16 @@ module.exports = {
   module: {
     rules: [
       { 
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader, // WARNING only enable that on production mode, otherwise you can't use HMR
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./node_modules'],
+            }
+          }
         ]
       },
       {

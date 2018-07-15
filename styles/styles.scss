@@ -1,3 +1,5 @@
+@import "@material/icon-button/mdc-icon-button";
+
 .music-player {
     background-color: red;
     height: 100%;
@@ -5,7 +7,7 @@
     min-height: 700px;
     width: 100%;
     overflow: hidden;
-  }
+
   
   .current-music-bg {
     height: 40%;
@@ -86,3 +88,4 @@
     justify-content: center;
   }
   
+}
