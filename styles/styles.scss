@@ -1,12 +1,19 @@
+@import "@material/typography/mdc-typography";
 @import "@material/icon-button/mdc-icon-button";
+@import "@material/list/mdc-list";
+@import '~material-design-icons/iconfont/material-icons.css';
+
+$text-color: white;
+$text-album-color: #d1d1c5;
 
 .music-player {
-    background-color: red;
-    height: 100%;
-    max-width: 500px;
-    min-height: 700px;
-    width: 100%;
-    overflow: hidden;
+  height: 100%;
+  max-width: 500px;
+  min-height: 700px;
+  width: 100%;
+  overflow: hidden;
+
+  @include mdc-list-divider-color(#595866);
 
   
   .current-music-bg {
@@ -20,31 +27,43 @@
     position: relative; /*https://images.991.com/large_image/ACDC+Black+Ice-448601.jpg*/
     background-image: url("https://baronmag.ca/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_629/MTM3Mjc0MzI2MDM5NzMzNDE2/highwaytohell.webp");
     background-size: 100% 100%;
-    color: white;
-  }
-  .current-music-bg:before {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(to bottom, transparent 50%, black 100%);
-    position: absolute;
-    bottom: 0;
-  }
-  .current-music {
-    position: absolute;
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-  }
-  .current-music .controls {
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-    margin-top: 1em;
-  }
+    color: $text-color;
   
+    &:before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to bottom, transparent 50%, black 100%);
+      position: absolute;
+      bottom: 0;
+    }
+
+    .current-music {
+      margin-top: 1em;
+      width: 100%;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+    
+      .music-desc {
+        text-align: center;
+        margin-top: 1em;
+
+        .title,
+        .band {
+          margin: 0.5 0;
+        }
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+        margin-top: 1em;
+      }
+    }
+  }
   .music-cover img {
     border-radius: 40px;
     width: 80px;
@@ -54,38 +73,32 @@
   .music-list {
     overflow-y: auto;
     max-height: 60%;
-  }
+    padding: 0;
   
-  .music-item {
-    height: 90px;
-    background-color: green;
-    border-bottom: 1px solid white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .music-item .cover {
-    background-color: azure;
-    min-width: 100px;
-    display: flex;
-    justify-content: center;
-  }
-  .music-item .cover img {
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .music-item .music-desc {
-    flex: 1;
-  }
-  
-  .music-item .time {
-    background-color: bisque;
-    min-width: 100px;
-    display: flex;
-    justify-content: center;
+    .mdc-list-item {
+      height: 90px;
+      background-color: #444250;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      @include mdc-list-item-primary-text-ink-color($text-color);
+      @include mdc-list-item-secondary-text-ink-color($text-album-color);
+    
+      .time {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .cover {
+        img {
+          border-radius: 25px;
+          width: 50px;
+          height: 50px;
+          margin-right: 1em;
+        }
+      }
+    }
   }
   
 }

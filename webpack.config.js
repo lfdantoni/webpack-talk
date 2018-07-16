@@ -3,13 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
+      { test: /\.hbs$/, loader: "handlebars-loader" },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
       { 
         test: /\.scss$/,
         use: [
@@ -24,16 +26,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          },
+          'ts-loader'
+        ]
       }
       ]},
+      resolve: {
+        extensions: ['.ts', '.js', '.json']
+      },
       plugins: [
         new HtmlWebpackPlugin({
           template: 'index.html'
