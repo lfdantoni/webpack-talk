@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HelloWorld = require('./src/plugins/notify')
 
 module.exports = {
   entry: './src/index.ts',
@@ -35,7 +36,8 @@ module.exports = {
               presets: ['@babel/preset-env']
             }
           },
-          'ts-loader'
+          'ts-loader',
+          './src/loaders/hate-console-logs'
         ]
       }
       ]},
@@ -48,6 +50,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
           filename: "[name].css"
-        })
+        }),
+        new HelloWorld()
       ]
 };

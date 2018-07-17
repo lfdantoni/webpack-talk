@@ -9,6 +9,8 @@ export class MusicPlayer {
     this.songsService = new SongsService();
 
     this.loadSongs();
+
+    console.log('hola mundo!');
   }
 
   private loadSongs() {
